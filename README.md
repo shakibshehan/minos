@@ -11,7 +11,7 @@ This repository is the source of truth for Minos-managed configuration, theme de
 - Keep source theme definitions in `.config/minos/themes/`; install them to `~/.config/minos/themes/`.
 - Do not commit generated theme caches or runtime output.
 - Separate core dependencies, desktop applications, optional applications, and hardware-specific packages.
-- Preserve user data and unrelated personal application configuration during installation.
+- Preserve user data and unrelated application configuration during installation.
 - Include only applications and configuration intentionally managed by Minos.
 
 ## Planned layout
@@ -21,21 +21,21 @@ minos/
 ├── README.md
 ├── .config/
 │   ├── cava/
+│   ├── environment.d/  # e.g. qt.conf
 │   ├── fish/
-│   ├── gtk-3.0/
+│   ├── gtk-3.0/        # GTK CSS and assets
 │   ├── gtk-4.0/
 │   ├── hypr/
 │   │   └── modules/
 │   ├── kitty/
 │   ├── minos/
-│   │   └── themes/
+│   │   └── themes/     # Source theme definitions
 │   ├── qt6ct/
 │   │   ├── colors/
 │   │   └── qss/
 │   ├── quickshell/
 │   │   └── components/
-│   ├── environment.d/
-│   └── xsettingsd/
+│   └── xsettingsd.conf
 ├── applications/       # Minos desktop application inventory and app-specific resources
 ├── themes/             # Shared theme resources not stored in an application's config
 ├── assets/             # Fonts, icons and images
@@ -51,7 +51,7 @@ Repository paths under `.config/` mirror the user's home configuration directory
 
 ## Status
 
-Repository structure is being prepared. Audited configuration files will be added in stages after their contents and destinations are verified.
+Repository structure is prepared. Audited configuration files and assets will be added in stages after their contents and destinations are verified.
 
 ## Scope
 
