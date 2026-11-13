@@ -49,6 +49,6 @@
   "applications": {
     "neovim": "tokyonight",
     "folder_color": "blue",
-    "kitty": "tokyo_nightT"
+    "kitty": "tokyo_night"
   }
 }
