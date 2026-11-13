@@ -3,7 +3,7 @@
   "name": "Kanagawa",
   "slug": "kanagawa",
   "applications": {
-    "neovim": "gruvbox",
+    "neovim": "kanagawa",
     "folder_color": "orange"
   },
   "colors": {
