@@ -1,0 +1,53 @@
+
+{
+  "name": "Kanagawa",
+  "slug": "kanagawa",
+  "applications": {
+    "neovim": "gruvbox",
+    "folder_color": "orange"
+  },
+  "colors": {
+    "dark": {
+      "bg_dim": "#16161d",
+      "bg0": "#1f1f28",
+      "bg1": "#2a2a37",
+      "bg2": "#363646",
+      "bg3": "#54546d",
+      "bg4": "#727169",
+      "primary_container": "#2d4f67",
+      "secondary_container": "#2d4f67",
+      "foreground": "#dcd7ba",
+      "muted": "#c8c093",
+      "muted_dark": "#727169",
+      "red": "#c34043",
+      "yellow": "#c0a36e",
+      "green": "#76946a",
+      "primary": "#7e9cd8",
+      "blue": "#7fb4ca",
+      "aqua": "#6a9589",
+      "orange": "#ffa066",
+      "purple": "#957fb8"
+    },
+    "light": {
+      "bg_dim": "#e8e4d8",
+      "bg0": "#f2ecbc",
+      "bg1": "#e7dfb8",
+      "bg2": "#dcd5ac",
+      "bg3": "#c8c093",
+      "bg4": "#a6a184",
+      "primary_container": "#c5d4e0",
+      "secondary_container": "#d5d9c8",
+      "foreground": "#393836",
+      "muted": "#727169",
+      "muted_dark": "#8a8878",
+      "red": "#c84053",
+      "yellow": "#b78a36",
+      "green": "#6f894e",
+      "primary": "#4d699b",
+      "blue": "#4b8291",
+      "aqua": "#4e7b70",
+      "orange": "#cc7a3a",
+      "purple": "#8064a5"
+    }
+  }
+}

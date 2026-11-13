@@ -1,0 +1,53 @@
+
+{
+  "name": "Nord",
+  "slug": "nord",
+  "colors": {
+    "dark": {
+      "bg_dim": "#242933",
+      "bg0": "#2e3440",
+      "bg1": "#3b4252",
+      "bg2": "#434c5e",
+      "bg3": "#4c566a",
+      "bg4": "#616e88",
+      "primary_container": "#3b4252",
+      "secondary_container": "#434c5e",
+      "foreground": "#eceff4",
+      "muted": "#d8dee9",
+      "muted_dark": "#7b88a1",
+      "red": "#bf616a",
+      "yellow": "#ebcb8b",
+      "green": "#a3be8c",
+      "primary": "#88c0d0",
+      "blue": "#81a1c1",
+      "aqua": "#8fbcbb",
+      "orange": "#d08770",
+      "purple": "#b48ead"
+    },
+    "light": {
+      "bg_dim": "#e5e9f0",
+      "bg0": "#eceff4",
+      "bg1": "#e5e9f0",
+      "bg2": "#d8dee9",
+      "bg3": "#c8d0df",
+      "bg4": "#aebaca",
+      "primary_container": "#d8dee9",
+      "secondary_container": "#c8d0df",
+      "foreground": "#2e3440",
+      "muted": "#4c566a",
+      "muted_dark": "#616e88",
+      "red": "#bf616a",
+      "yellow": "#b48e5a",
+      "green": "#5e8c72",
+      "primary": "#5e81ac",
+      "blue": "#5e81ac",
+      "aqua": "#4f8f91",
+      "orange": "#c5725b",
+      "purple": "#a06c9a"
+    }
+  },
+  "applications": {
+    "neovim": "nordic",
+    "folder_color": "nordic"
+  }
+}
