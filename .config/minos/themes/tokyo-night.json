@@ -1,0 +1,54 @@
+
+{
+  "name": "Tokyo Night",
+  "slug": "tokyo-night",
+  "colors": {
+    "dark": {
+      "bg_dim": "#16161e",
+      "bg0": "#1a1b26",
+      "bg1": "#1f2335",
+      "bg2": "#292e42",
+      "bg3": "#3b4261",
+      "bg4": "#545c7e",
+      "primary_container": "#283457",
+      "secondary_container": "#3b4261",
+      "foreground": "#c0caf5",
+      "muted": "#a9b1d6",
+      "muted_dark": "#565f89",
+      "red": "#f7768e",
+      "yellow": "#e0af68",
+      "green": "#9ece6a",
+      "primary": "#7aa2f7",
+      "blue": "#7aa2f7",
+      "aqua": "#7dcfff",
+      "orange": "#ff9e64",
+      "purple": "#bb9af7"
+    },
+    "light": {
+      "bg_dim": "#e1e2e7",
+      "bg0": "#d5d6db",
+      "bg1": "#e1e2e7",
+      "bg2": "#c4c8da",
+      "bg3": "#a8aecb",
+      "bg4": "#8992b0",
+      "primary_container": "#c7d5f5",
+      "secondary_container": "#c4c8da",
+      "foreground": "#343b58",
+      "muted": "#565f89",
+      "muted_dark": "#8992b0",
+      "red": "#c64343",
+      "yellow": "#8c6c3e",
+      "green": "#485e30",
+      "primary": "#2e7de9",
+      "blue": "#2e7de9",
+      "aqua": "#007197",
+      "orange": "#b15c00",
+      "purple": "#7847bd"
+    }
+  },
+  "applications": {
+    "neovim": "tokyonight",
+    "folder_color": "blue",
+    "kitty": "tokyo_nightT"
+  }
+}

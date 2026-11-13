@@ -1,0 +1,52 @@
+{
+  "name": "Everforest",
+  "slug": "everforest",
+  "colors": {
+    "dark": {
+      "bg_dim": "#232a2e",
+      "bg0": "#2d353b",
+      "bg1": "#343f44",
+      "bg2": "#3d484d",
+      "bg3": "#475258",
+      "bg4": "#4f585e",
+      "primary_container": "#3c4841",
+      "secondary_container": "#45443c",
+      "foreground": "#d3c6aa",
+      "muted": "#9da9a0",
+      "muted_dark": "#7a8478",
+      "red": "#e67e80",
+      "yellow": "#dbbc7f",
+      "green": "#a7c080",
+      "primary": "#a7c080",
+      "blue": "#7fbbb3",
+      "aqua": "#83c092",
+      "orange": "#e69875",
+      "purple": "#d699b6"
+    },
+    "light": {
+      "bg_dim": "#efebd4",
+      "bg0": "#fdf6e3",
+      "bg1": "#f4f0d9",
+      "bg2": "#efebd4",
+      "bg3": "#e6e2cc",
+      "bg4": "#e0dcc7",
+      "primary_container": "#e6e2cc",
+      "secondary_container": "#e9e5cb",
+      "foreground": "#5c6a72",
+      "muted": "#829181",
+      "muted_dark": "#939f91",
+      "red": "#f85552",
+      "yellow": "#dfa000",
+      "green": "#8da101",
+      "primary": "#8da101",
+      "blue": "#3a94c5",
+      "aqua": "#35a77c",
+      "orange": "#f57d26",
+      "purple": "#df69ba"
+    }
+  },
+  "applications": {
+    "neovim": "everforest",
+    "folder_color": "green"
+  }
+}

@@ -1,0 +1,53 @@
+
+{
+  "name": "One Dark",
+  "slug": "one-dark",
+  "colors": {
+    "dark": {
+      "bg_dim": "#21252b",
+      "bg0": "#282c34",
+      "bg1": "#2c313a",
+      "bg2": "#353b45",
+      "bg3": "#3e4451",
+      "bg4": "#545862",
+      "primary_container": "#3a3f4b",
+      "secondary_container": "#3e4451",
+      "foreground": "#abb2bf",
+      "muted": "#7f848e",
+      "muted_dark": "#5c6370",
+      "red": "#e06c75",
+      "yellow": "#e5c07b",
+      "green": "#98c379",
+      "primary": "#61afef",
+      "blue": "#61afef",
+      "aqua": "#56b6c2",
+      "orange": "#d19a66",
+      "purple": "#c678dd"
+    },
+    "light": {
+      "bg_dim": "#e5e5e6",
+      "bg0": "#fafafa",
+      "bg1": "#f0f0f1",
+      "bg2": "#e5e5e6",
+      "bg3": "#d4d4d5",
+      "bg4": "#c4c4c5",
+      "primary_container": "#dce5f0",
+      "secondary_container": "#e5e5e6",
+      "foreground": "#383a42",
+      "muted": "#696c77",
+      "muted_dark": "#a0a1a7",
+      "red": "#e45649",
+      "yellow": "#c18401",
+      "green": "#50a14f",
+      "primary": "#4078f2",
+      "blue": "#4078f2",
+      "aqua": "#0184bc",
+      "orange": "#986801",
+      "purple": "#a626a4"
+    }
+  },
+  "applications": {
+    "neovim": "one_dark",
+    "folder_color": "one_dark"
+  }
+}
