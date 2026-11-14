@@ -15,6 +15,7 @@ brightnessctl
 cava
 celluloid
 cliphist
+dbus-broker
 dolphin
 fastfetch
 ffmpeg
