@@ -116,7 +116,7 @@ if command -v xdg-user-dirs-update >/dev/null 2>&1; then
 fi
 if command -v systemctl >/dev/null 2>&1; then
   if systemctl --user show-environment >/dev/null 2>&1; then
-    systemctl --user enable pipewire.socket pipewire-pulse.socket wireplumber.service xdg-user-dirs.service \
+    systemctl --user enable p11-kit-server.socket pipewire.socket pipewire-pulse.socket wireplumber.service xdg-user-dirs.service \
       || warn "Could not enable every user-session unit; they can be enabled after logging into the desktop."
   else
     warn "No active user systemd manager was detected; user services were not enabled in this run."
@@ -124,7 +124,7 @@ if command -v systemctl >/dev/null 2>&1; then
 fi
 
 log "Enabling the system services used by this desktop."
-sudo systemctl enable NetworkManager.service bluetooth.service firewalld.service power-profiles-daemon.service
+sudo systemctl enable NetworkManager.service bluetooth.service firewalld.service power-profiles-daemon.service systemd-timesyncd.service
 
 # The reference setup installs SilentSDDM. Configure it only when no different
 # display manager is already selected on the target system.
