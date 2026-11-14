@@ -21,7 +21,7 @@ Do not run the installer as root. It uses `sudo` only for system package and ser
 - Restores repository configuration under `~/.config/`.
 - Rewrites the Qt6ct color-scheme path for the account running the installer.
 - Makes Quickshell shell helper scripts executable.
-- Copies repository wallpapers into `~/Pictures/Wallpapers` without overwriting existing files.
+- Copies tracked wallpaper images into `~/Pictures/Wallpapers` without overwriting existing files or flattening theme folders. The repository currently has no wallpaper images, so this part remains incomplete until they are uploaded.
 - Configures the SilentSDDM greeter when no different display manager is selected, and enables the graphical boot target.
 - Sets logind lid-switch handling to “ignore” so the Hyprland lid binding owns suspend behavior.
 - Enables NetworkManager, Bluetooth, firewalld, power-profiles-daemon, and systemd-timesyncd.
