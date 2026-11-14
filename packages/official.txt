@@ -23,6 +23,7 @@ firewalld
 fish
 git
 gnome-themes-extra
+gsettings-desktop-schemas
 grim
 gst-plugin-pipewire
 gtk3
@@ -51,7 +52,10 @@ pipewire-audio
 pipewire-jack
 pipewire-pulse
 playerctl
+p11-kit
 polkit
+procps-ng
+python
 power-profiles-daemon
 qt6-base
 qt6-declarative
