@@ -1,0 +1,10 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR --export EZA_COLORS:di\x3d38\x3b2\x3b158\x3b206\x3b106\x3afi\x3d38\x3b2\x3b192\x3b202\x3b245\x3aex\x3d38\x3b2\x3b122\x3b162\x3b247\x3aln\x3d38\x3b2\x3b125\x3b207\x3b255\x3aor\x3d38\x3b2\x3b247\x3b118\x3b142
+SETUVAR --export MINOS_PRIMARY:7aa2f7
+SETUVAR --export MINOS_PROMPT_ERROR:f7768e
+SETUVAR --export MINOS_PROMPT_GIT:e0af68
+SETUVAR --export MINOS_PROMPT_MUTED:565f89
+SETUVAR --export MINOS_PROMPT_OK:9ece6a
+SETUVAR --export --path MINOS_PROMPT_PATH:7dcfff
+SETUVAR --export MINOS_THEME:tokyo\x2dnight
