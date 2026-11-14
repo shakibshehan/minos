@@ -99,7 +99,7 @@ if [[ -d "$REPO_DIR/wallpapers" ]]; then
       cp -a -- "$wallpaper" "$destination"
     fi
     ((wallpaper_count += 1))
-  done < <(find "$REPO_DIR/wallpapers" -type f \\( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' -o -iname '*.gif' \\) -print0)
+  done < <(find "$REPO_DIR/wallpapers" -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' -o -iname '*.gif' \) -print0)
 fi
 if (( wallpaper_count == 0 )); then
   warn "No wallpaper images are tracked in the repository yet; wallpaper restoration will use the theme system's fallback."
@@ -118,7 +118,7 @@ fi
 if [[ -x "$HOME/.config/quickshell/scripts/theme-system.sh" ]]; then
   current_theme=$(<"$minos_state/current-theme")
   log "Generating the runtime theme cache for $current_theme."
-  "$HOME/.config/quickshell/scripts/theme-system.sh" apply "$current_theme" \\
+  "$HOME/.config/quickshell/scripts/theme-system.sh" apply "$current_theme" \
     || warn "Theme initialization failed; inspect the theme-system.sh output and rerun it after login."
 fi
 
