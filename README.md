@@ -29,6 +29,12 @@ Do not run the installer as root. It uses `sudo` only for system package and ser
 
 The installer intentionally does not partition disks, install a bootloader, replace the kernel, change the user's login shell, or overwrite unrelated files. Reboot after installation and select the Hyprland session in SDDM.
 
+## User-local data
+
+Minos does not mirror the entire `~/.local` directory. The theme system generates the KDE `Minos.colors` scheme and the selected Minos Papirus folder-color theme under `~/.local/share` from the tracked theme definitions and installed Papirus-Dark assets. Icon caches and completion markers are generated at runtime. GTK appearance settings are restored from the tracked GTK configuration under `.config/gtk-3.0` and `.config/gtk-4.0`.
+
+Personal application state, browser profiles, histories, databases, logs, trash, and caches are not migrated. Browser-installed web-app launchers are recreated by the browser when those web apps are installed again; Minos does not copy profile-specific launchers or absolute paths from the original machine.
+
 ## Repository principles
 
 - Paths under `.config/` mirror Minos-managed paths in the user's home directory.
