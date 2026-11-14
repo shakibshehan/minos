@@ -94,6 +94,23 @@ if [[ -d "$REPO_DIR/wallpapers" ]]; then
   cp -an "$REPO_DIR/wallpapers/." "$HOME/Pictures/Wallpapers/"
 fi
 
+# The audited Fish universal variables identify Tokyo Night as the current preset.
+# Seed that state only on a fresh install; preserve a theme already selected on this machine.
+minos_state="$HOME/.local/state/minos"
+mkdir -p "$minos_state"
+if [[ ! -s "$minos_state/current-theme" ]]; then
+  printf 'tokyo-night\\n' > "$minos_state/current-theme"
+fi
+if [[ ! -s "$minos_state/appearance" ]]; then
+  printf 'dark\\n' > "$minos_state/appearance"
+fi
+if [[ -x "$HOME/.config/quickshell/scripts/theme-system.sh" ]]; then
+  current_theme=$(<"$minos_state/current-theme")
+  log "Generating the runtime theme cache for $current_theme."
+  "$HOME/.config/quickshell/scripts/theme-system.sh" apply "$current_theme" \\
+    || warn "Theme initialization failed; inspect the theme-system.sh output and rerun it after login."
+fi
+
 if command -v xdg-user-dirs-update >/dev/null 2>&1; then
   xdg-user-dirs-update || warn "Could not create XDG user directories automatically."
 fi
