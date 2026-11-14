@@ -79,8 +79,8 @@ For a fresh Minos setup, seed the reference theme state and generate its runtime
 
 ```sh
 mkdir -p ~/.local/state/minos
-printf '%s\\n' 'tokyo-night' > ~/.local/state/minos/current-theme
-printf '%s\\n' 'dark' > ~/.local/state/minos/appearance
+printf '%s\n' 'tokyo-night' > ~/.local/state/minos/current-theme
+printf '%s\n' 'dark' > ~/.local/state/minos/appearance
 bash ~/.config/quickshell/scripts/theme-system.sh apply tokyo-night
 ```
 
@@ -116,7 +116,7 @@ For the reference Hyprland lid-switch behavior, create the logind drop-in:
 
 ```sh
 sudo install -d -m 755 /etc/systemd/logind.conf.d
-printf '%s\\n' '[Login]' 'HandleLidSwitch=ignore' 'HandleLidSwitchExternalPower=ignore' 'HandleLidSwitchDocked=ignore' | sudo tee /etc/systemd/logind.conf.d/10-minos-lid.conf
+printf '%s\n' '[Login]' 'HandleLidSwitch=ignore' 'HandleLidSwitchExternalPower=ignore' 'HandleLidSwitchDocked=ignore' | sudo tee /etc/systemd/logind.conf.d/10-minos-lid.conf
 ```
 
 ## 8. Configure SDDM (optional)
@@ -125,7 +125,7 @@ Only do this if you want Minos to use the included SilentSDDM theme and you are 
 
 ```sh
 sudo install -d -m 755 /etc/sddm.conf.d
-printf '%s\\n' '[General]' 'InputMethod=qtvirtualkeyboard' 'GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT_IM_MODULE=qtvirtualkeyboard' '' '[Theme]' 'Current=silent' | sudo tee /etc/sddm.conf.d/10-minos-silent-theme.conf
+printf '%s\n' '[General]' 'InputMethod=qtvirtualkeyboard' 'GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT_IM_MODULE=qtvirtualkeyboard' '' '[Theme]' 'Current=silent' | sudo tee /etc/sddm.conf.d/10-minos-silent-theme.conf
 sudo systemctl set-default graphical.target
 sudo systemctl enable sddm.service
 ```
