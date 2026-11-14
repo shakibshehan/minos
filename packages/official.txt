@@ -53,6 +53,11 @@ playerctl
 polkit
 power-profiles-daemon
 qt6-base
+qt6-declarative
+qt6-imageformats
+qt6-multimedia
+qt6-svg
+qt6-virtualkeyboard
 qt6-wayland
 sassc
 sddm
