@@ -125,7 +125,33 @@ fi
 
 log "Enabling the system services used by this desktop."
 sudo systemctl enable NetworkManager.service bluetooth.service firewalld.service power-profiles-daemon.service
-sudo systemctl enable sddm.service
+
+# The reference setup installs SilentSDDM. Configure it only when no different
+# display manager is already selected on the target system.
+display_manager_link=/etc/systemd/system/display-manager.service
+active_display_manager=""
+if sudo test -L "$display_manager_link"; then
+  active_display_manager=$(sudo readlink -f "$display_manager_link" || true)
+fi
+if [[ -n "$active_display_manager" && "$active_display_manager" != */sddm.service ]]; then
+  warn "A different display manager is already selected ($active_display_manager); leaving it untouched."
+else
+  sddm_dropin=/etc/sddm.conf.d/10-minos-silent-theme.conf
+  if sudo test -e "$sddm_dropin"; then
+    sudo cp -a "$sddm_dropin" "$sddm_dropin.bak.$(date +%Y%m%d-%H%M%S)"
+  fi
+  sudo install -d -m 755 /etc/sddm.conf.d
+  sudo tee "$sddm_dropin" >/dev/null <<'SDDM'
+[General]
+InputMethod=qtvirtualkeyboard
+GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT_IM_MODULE=qtvirtualkeyboard
+
+[Theme]
+Current=silent
+SDDM
+  sudo systemctl set-default graphical.target
+  sudo systemctl enable sddm.service
+fi
 
 log "Minos files and packages have been installed."
 printf '\nNext steps:\n'
