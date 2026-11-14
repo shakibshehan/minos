@@ -1,0 +1,9 @@
+# Minos packages from the Arch User Repository.
+# yay is bootstrapped separately when it is not already installed.
+brave-origin-bin
+otf-space-grotesk
+papirus-folders
+qogir-gtk-theme
+qt6ct-kde
+redhat-fonts
+sddm-silent-theme
