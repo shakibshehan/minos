@@ -123,6 +123,19 @@ if command -v systemctl >/dev/null 2>&1; then
   fi
 fi
 
+log "Applying the Hyprland lid-switch policy used by the reference setup."
+logind_dropin=/etc/systemd/logind.conf.d/10-minos-lid.conf
+if sudo test -e "$logind_dropin"; then
+  sudo cp -a "$logind_dropin" "$logind_dropin.bak.$(date +%Y%m%d-%H%M%S)"
+fi
+sudo install -d -m 755 /etc/systemd/logind.conf.d
+sudo tee "$logind_dropin" >/dev/null <<'LOGIND'
+[Login]
+HandleLidSwitch=ignore
+HandleLidSwitchExternalPower=ignore
+HandleLidSwitchDocked=ignore
+LOGIND
+
 log "Enabling the system services used by this desktop."
 sudo systemctl enable NetworkManager.service bluetooth.service firewalld.service power-profiles-daemon.service systemd-timesyncd.service
 
