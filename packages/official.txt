@@ -33,6 +33,7 @@ gvfs
 hypridle
 hyprland
 hyprlock
+quickshell
 hyprshot
 hyprsunset
 imagemagick
