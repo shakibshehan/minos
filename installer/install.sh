@@ -27,7 +27,7 @@ read_packages() {
 }
 mapfile -t official_packages < <(read_packages "$REPO_DIR/packages/official.txt")
 mapfile -t aur_packages < <(read_packages "$REPO_DIR/packages/aur.txt")
-( ${#official_packages[@]} ) || fail "Official package manifest is empty."
+(( ${#official_packages[@]} )) || fail "Official package manifest is empty."
 
 log "Updating Arch and installing Minos official-repository packages."
 sudo pacman -Syu --needed --noconfirm -- "${official_packages[@]}"
@@ -56,7 +56,7 @@ if ! command -v yay >/dev/null 2>&1; then
   trap - EXIT INT TERM
 fi
 
-if ( ${#aur_packages[@]} ); then
+if (( ${#aur_packages[@]} )); then
   log "Installing Minos AUR packages with yay."
   yay -S --needed --noconfirm -- "${aur_packages[@]}"
 fi
