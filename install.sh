@@ -13,7 +13,7 @@ command -v sudo >/dev/null 2>&1 || fail "sudo is required. Install/configure sud
 
 if ! command -v curl >/dev/null 2>&1; then
   printf 'Minos: installing bootstrap dependency curl...\n'
-  sudo pacman -Sy --needed --noconfirm curl || fail "Could not install curl."
+  sudo pacman -Syu --needed --noconfirm curl || fail "Could not install curl."
 fi
 command -v tar >/dev/null 2>&1 || sudo pacman -S --needed --noconfirm tar
 
