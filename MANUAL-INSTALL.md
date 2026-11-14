@@ -88,14 +88,14 @@ If you already have Minos state you want to keep, do not overwrite your existing
 
 ## 6. Restore wallpapers
 
-If you have uploaded wallpaper images into the repository, copy them while preserving their theme subfolders:
+The repository stores wallpapers in `Pictures/Wallpapers/`. Copy them while preserving their theme subfolders:
 
 ```sh
 mkdir -p ~/Pictures/Wallpapers
-cp -an wallpapers/. ~/Pictures/Wallpapers/
+cp -an Pictures/Wallpapers/. ~/Pictures/Wallpapers/
 ```
 
-The repository currently contains no wallpaper images, so wallpaper restoration is incomplete until those images are added.
+The tracked wallpaper collection is included in `Pictures/Wallpapers/` and will be copied into `~/Pictures/Wallpapers/` by this step.
 
 ## 7. Enable services
 
