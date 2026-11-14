@@ -7,7 +7,7 @@ Minos is a personal Arch Linux desktop restoration project built around Hyprland
 From a regular user account on a minimal Arch Linux installation, run:
 
 ```bash
-sudo pacman -Sy --needed curl && bash -c "$(curl -fsSL https://raw.githubusercontent.com/shakibshehan/minos/main/install.sh)"
+sudo pacman -Syu --needed curl && bash -c "$(curl -fsSL https://raw.githubusercontent.com/shakibshehan/minos/main/install.sh)"
 ```
 
 Do not run the installer as root. It uses `sudo` only for system package and service operations.
