@@ -89,9 +89,20 @@ if [[ -d "$HOME/.config/quickshell/scripts" ]]; then
   find "$HOME/.config/quickshell/scripts" -maxdepth 1 -type f -name '*.sh' -exec chmod u+x {} +
 fi
 
+wallpaper_count=0
 if [[ -d "$REPO_DIR/wallpapers" ]]; then
-  mkdir -p "$HOME/Pictures/Wallpapers"
-  cp -an "$REPO_DIR/wallpapers/." "$HOME/Pictures/Wallpapers/"
+  while IFS= read -r -d '' wallpaper; do
+    relative_path=${wallpaper#"$REPO_DIR/wallpapers/"}
+    destination="$HOME/Pictures/Wallpapers/$relative_path"
+    mkdir -p "$(dirname "$destination")"
+    if [[ ! -e "$destination" ]]; then
+      cp -a -- "$wallpaper" "$destination"
+    fi
+    ((wallpaper_count += 1))
+  done < <(find "$REPO_DIR/wallpapers" -type f \\( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' -o -iname '*.gif' \\) -print0)
+fi
+if (( wallpaper_count == 0 )); then
+  warn "No wallpaper images are tracked in the repository yet; wallpaper restoration will use the theme system's fallback."
 fi
 
 # The audited Fish universal variables identify Tokyo Night as the current preset.
