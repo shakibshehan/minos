@@ -22,8 +22,10 @@ Do not run the installer as root. It uses `sudo` only for system package and ser
 - Rewrites the Qt6ct color-scheme path for the account running the installer.
 - Makes Quickshell shell helper scripts executable.
 - Copies repository wallpapers into `~/Pictures/Wallpapers` without overwriting existing files.
-- Enables NetworkManager, Bluetooth, firewalld, power-profiles-daemon, and SDDM.
-- Enables PipeWire/WirePlumber user units when a user systemd manager is available.
+- Configures the SilentSDDM greeter when no different display manager is selected, and enables the graphical boot target.
+- Sets logind lid-switch handling to “ignore” so the Hyprland lid binding owns suspend behavior.
+- Enables NetworkManager, Bluetooth, firewalld, power-profiles-daemon, and systemd-timesyncd.
+- Enables PipeWire/WirePlumber, p11-kit, and XDG user-directory units when a user systemd manager is available.
 
 The installer intentionally does not partition disks, install a bootloader, replace the kernel, change the user's login shell, or overwrite unrelated files. Reboot after installation and select the Hyprland session in SDDM.
 
