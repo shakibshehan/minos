@@ -53,9 +53,8 @@ Read AUR PKGBUILDs before building if you want to inspect exactly what will run 
 Back up your current configuration before merging Minos files:
 
 ```sh
-mkdir -p ~/.local/state/minos/backups
+mkdir -p ~/.local/state/minos/backups ~/.config
 tar -czf ~/.local/state/minos/backups/config-manual-$(date +%Y%m%d-%H%M%S).tar.gz -C ~ .config
-mkdir -p ~/.config
 cp -a .config/. ~/.config/
 ```
 
@@ -116,6 +115,7 @@ xdg-user-dirs-update
 For the reference Hyprland lid-switch behavior, create the logind drop-in:
 
 ```sh
+sudo install -d -m 755 /etc/systemd/logind.conf.d
 printf '%s\\n' '[Login]' 'HandleLidSwitch=ignore' 'HandleLidSwitchExternalPower=ignore' 'HandleLidSwitchDocked=ignore' | sudo tee /etc/systemd/logind.conf.d/10-minos-lid.conf
 ```
 
@@ -124,6 +124,7 @@ printf '%s\\n' '[Login]' 'HandleLidSwitch=ignore' 'HandleLidSwitchExternalPower=
 Only do this if you want Minos to use the included SilentSDDM theme and you are not keeping a different display manager. The AUR package should have installed the theme under `/usr/share/sddm/themes/silent`.
 
 ```sh
+sudo install -d -m 755 /etc/sddm.conf.d
 printf '%s\\n' '[General]' 'InputMethod=qtvirtualkeyboard' 'GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT_IM_MODULE=qtvirtualkeyboard' '' '[Theme]' 'Current=silent' | sudo tee /etc/sddm.conf.d/10-minos-silent-theme.conf
 sudo systemctl set-default graphical.target
 sudo systemctl enable sddm.service
