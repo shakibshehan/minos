@@ -1,0 +1,13 @@
+brave-origin-bin
+html2markdown-debug
+otf-space-grotesk
+papirus-folders
+qogir-gtk-theme
+qt6ct-kde
+qt6ct-kde-debug
+redhat-fonts
+ryotunes
+sddm-silent-theme
+vscodium-bin
+yay
+yay-debug
