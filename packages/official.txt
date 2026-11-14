@@ -1,5 +1,9 @@
 # Minos desktop and runtime packages from configured official Arch repositories.
 # Keep OS installation choices (kernel, bootloader, partitioning) outside Minos.
+adwaita-cursors
+adwaita-fonts
+adwaita-icon-theme
+adwaita-icon-theme-legacy
 awww
 base-devel
 bluez
@@ -20,6 +24,9 @@ git
 gnome-themes-extra
 grim
 gst-plugin-pipewire
+gtk3
+gtk4
+gnu-free-fonts
 gvfs
 hypridle
 hyprland
@@ -27,6 +34,7 @@ hyprlock
 hyprshot
 hyprsunset
 imagemagick
+inter-font
 jq
 kitty
 libnotify
@@ -51,6 +59,9 @@ sddm
 slurp
 starship
 sof-firmware
+otf-geist-mono-nerd
+ttf-hack-nerd
+ttf-jetbrains-mono-nerd
 udisks2
 upower
 wev
