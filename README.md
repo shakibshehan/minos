@@ -1,6 +1,11 @@
 # Minos
 
-Minos is a personal Arch Linux desktop restoration project built around Hyprland and Quickshell. Its goal is to reproduce the Minos desktop on a fresh Arch Linux installation with one command.
+Minos is a personal Arch Linux desktop restoration project built around Hyprland and Quickshell. Its goal is to reproduce the Minos desktop on a fresh Arch Linux installation with one command, while also documenting a fully manual path.
+
+## Installation choices
+
+- **[One-command installation](#one-command-installation):** the easiest route; the installer handles package installation, configuration deployment, and system setup.
+- **[Manual installation](MANUAL-INSTALL.md):** install packages and apply configuration step by step, reviewing or skipping optional stages yourself.
 
 ## One-command installation
 
