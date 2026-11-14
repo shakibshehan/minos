@@ -99,10 +99,10 @@ fi
 minos_state="$HOME/.local/state/minos"
 mkdir -p "$minos_state"
 if [[ ! -s "$minos_state/current-theme" ]]; then
-  printf 'tokyo-night\\n' > "$minos_state/current-theme"
+  printf '%s\\n' 'tokyo-night' > "$minos_state/current-theme"
 fi
 if [[ ! -s "$minos_state/appearance" ]]; then
-  printf 'dark\\n' > "$minos_state/appearance"
+  printf '%s\\n' 'dark' > "$minos_state/appearance"
 fi
 if [[ -x "$HOME/.config/quickshell/scripts/theme-system.sh" ]]; then
   current_theme=$(<"$minos_state/current-theme")
