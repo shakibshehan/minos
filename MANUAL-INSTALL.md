@@ -119,16 +119,40 @@ sudo install -d -m 755 /etc/systemd/logind.conf.d
 printf '%s\n' '[Login]' 'HandleLidSwitch=ignore' 'HandleLidSwitchExternalPower=ignore' 'HandleLidSwitchDocked=ignore' | sudo tee /etc/systemd/logind.conf.d/10-minos-lid.conf
 ```
 
-## 8. Configure SDDM (optional)
+## 8. Configure SDDM and the Minos Tokyo Night login theme
 
-Only do this if you want Minos to use the included SilentSDDM theme and you are not keeping a different display manager. The AUR package should have installed the theme under `/usr/share/sddm/themes/silent`.
+Do this when you want Minos to use its included SilentSDDM login manager and you are not keeping a different display manager. The AUR package should have installed the theme under `/usr/share/sddm/themes/silent`.
 
 ```sh
 sudo install -d -m 755 /etc/sddm.conf.d
-printf '%s\n' '[General]' 'InputMethod=qtvirtualkeyboard' 'GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT_IM_MODULE=qtvirtualkeyboard' '' '[Theme]' 'Current=silent' | sudo tee /etc/sddm.conf.d/10-minos-silent-theme.conf
+printf '%s\\n' '[General]' 'InputMethod=qtvirtualkeyboard' 'GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT_IM_MODULE=qtvirtualkeyboard' '' '[Theme]' 'Current=silent' | sudo tee /etc/sddm.conf.d/10-minos-silent-theme.conf
+
+sddm_theme_dir=/usr/share/sddm/themes/silent
+sddm_cache_dir=/var/cache/minos-sddm
+sudo install -d -o "$USER" -g "$(id -gn)" -m 755 "$sddm_cache_dir"
+stamp=$(date +%Y%m%d-%H%M%S)
+
+for entry in \
+  "$sddm_theme_dir/configs/default.conf.user:$sddm_cache_dir/theme.conf.user" \
+  "$sddm_theme_dir/backgrounds/minos-wallpaper.jpg:$sddm_cache_dir/minos-wallpaper.jpg"; do
+  target=${entry%%:*}
+  source=${entry#*:}
+  if sudo test -e "$target" || sudo test -L "$target"; then
+    current_link=$(sudo readlink "$target" 2>/dev/null || true)
+    if [[ "$current_link" != "$source" ]]; then
+      sudo cp -a "$target" "$target.bak.$stamp"
+      sudo rm -f -- "$target"
+    fi
+  fi
+  sudo ln -sfn -- "$source" "$target"
+done
+
+bash ~/.config/quickshell/scripts/theme-system.sh sync-sddm-latest
 sudo systemctl set-default graphical.target
 sudo systemctl enable sddm.service
 ```
+
+The login configuration is generated from the selected Minos palette and matching wallpaper. The cache is readable by SDDM, while your normal user owns it so theme changes can refresh it without running the desktop theme script as root.
 
 If another display manager is already configured, do not enable SDDM or replace its configuration unless you intend to switch.
 
