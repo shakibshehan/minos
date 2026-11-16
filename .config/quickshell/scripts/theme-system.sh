@@ -339,7 +339,7 @@ open_wallpaper_folder() {
 
 wallpaper_for_theme() {
   local slug=$1 directory saved=
-  directory=$wallpaper_root/$slug
+  directory=$(wallpaper_directory)
   if [[ -s $state_dir/wallpapers/$slug ]]; then
     IFS= read -r saved < "$state_dir/wallpapers/$slug"
   elif [[ -s $state_dir/current-wallpaper ]]; then
@@ -418,9 +418,17 @@ sync_sddm_theme() {
 
 sync_sddm_latest() {
   [[ -d $sddm_cache_dir && -w $sddm_cache_dir ]] || return 0
+  local file
+  if [[ -f $theme_mode_file ]] &&
+     [[ $(<"$theme_mode_file") == dynamic ]] &&
+     [[ -s $dynamic_theme_file ]]; then
+    file=$dynamic_theme_file
+  else
+    file=$(theme_file "$(current_theme)")
+  fi
   exec 9>"$sddm_cache_dir/sync.lock"
   flock 9
-  sync_sddm_theme "$(theme_file "$(current_theme)")"
+  sync_sddm_theme "$file"
 }
 
 schedule_sddm_sync() {
