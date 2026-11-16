@@ -173,6 +173,38 @@ GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT
 [Theme]
 Current=silent
 SDDM
+
+  # Connect Minos' generated palette to SilentSDDM's supported .conf.user
+  # override. Keep generated files in a user-writable, world-readable cache.
+  sddm_theme_dir=/usr/share/sddm/themes/silent
+  sddm_cache_dir=/var/cache/minos-sddm
+  if [[ -d "$sddm_theme_dir/configs" && -d "$sddm_theme_dir/backgrounds" ]]; then
+    sudo install -d -o "$(id -u)" -g "$(id -g)" -m 755 "$sddm_cache_dir"
+    sddm_stamp=$(date +%Y%m%d-%H%M%S)
+
+    for entry in \
+      "$sddm_theme_dir/configs/default.conf.user:$sddm_cache_dir/theme.conf.user" \
+      "$sddm_theme_dir/backgrounds/minos-wallpaper.jpg:$sddm_cache_dir/minos-wallpaper.jpg"; do
+      target=${entry%%:*}
+      source=${entry#*:}
+      if sudo test -e "$target" || sudo test -L "$target"; then
+        current_link=$(sudo readlink "$target" 2>/dev/null || true)
+        if [[ "$current_link" != "$source" ]]; then
+          sudo cp -a "$target" "$target.bak.$sddm_stamp"
+          sudo rm -f -- "$target"
+        fi
+      fi
+      sudo ln -sfn -- "$source" "$target"
+    done
+
+    if [[ -x "$HOME/.config/quickshell/scripts/theme-system.sh" ]]; then
+      "$HOME/.config/quickshell/scripts/theme-system.sh" sync-sddm-latest \
+        || warn "Could not generate the initial SilentSDDM theme override."
+    fi
+  else
+    warn "SilentSDDM theme files were not found; skipping Minos login-theme integration."
+  fi
+
   sudo systemctl set-default graphical.target
   sudo systemctl enable sddm.service
 fi
