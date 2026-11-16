@@ -125,7 +125,7 @@ Do this when you want Minos to use its included SilentSDDM login manager and you
 
 ```sh
 sudo install -d -m 755 /etc/sddm.conf.d
-printf '%s\\n' '[General]' 'InputMethod=qtvirtualkeyboard' 'GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT_IM_MODULE=qtvirtualkeyboard' '' '[Theme]' 'Current=silent' | sudo tee /etc/sddm.conf.d/10-minos-silent-theme.conf
+printf '%s\n' '[General]' 'InputMethod=qtvirtualkeyboard' 'GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT_IM_MODULE=qtvirtualkeyboard' '' '[Theme]' 'Current=silent' | sudo tee /etc/sddm.conf.d/10-minos-silent-theme.conf
 
 bash <<'BASH'
 sddm_theme_dir=/usr/share/sddm/themes/silent
