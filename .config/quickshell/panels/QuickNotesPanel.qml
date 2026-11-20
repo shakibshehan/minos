@@ -290,7 +290,7 @@ FocusScope {
     }
 
     implicitWidth: 472
-    implicitHeight: 430
+    implicitHeight: 210
 
     Keys.onPressed: (event) => {
         if ((event.modifiers & Qt.AltModifier) && event.key === Qt.Key_N) {
@@ -403,6 +403,23 @@ FocusScope {
                     enabled: root.editorMode
                     cursorShape: enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
                     onClicked: root.closeEditor()
+                }
+            }
+
+            ShellText {
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                visible: !root.editorMode
+                text: "+"
+                color: Theme.primary
+                font.pixelSize: 22
+                font.weight: Font.Medium
+
+                MouseArea {
+                    anchors.fill: parent
+                    anchors.margins: -6
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: root.createAndOpenNote()
                 }
             }
 
